@@ -1,1 +1,3 @@
-console.log("Hello world");
+import UploadflyClient from "./uploadfly";
+
+export default UploadflyClient;

@@ -1,11 +1,12 @@
 {
-  "name": "uploadfly-client",
+  "name": "@uploadfly/uploadflyclient",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Uploadfly Client SDK for file uploading.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest --watch --verbose",
-    "dev": "node ./dist/index.js"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",

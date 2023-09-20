@@ -4,7 +4,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/adedoyin-emmanuel/uploadfly-client.svg?style=for-the-badge)](https://github.com/adedoyin-emmanuel/uploadfly-client/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/adedoyin-emmanuel/uploadfly-client.svg?style=for-the-badge)](https://github.com/adedoyin-emmanuel/uploadfly-client/network)
-[![GitHub downloads](https://img.shields.io/github/downloads/yourusername/yourrepository/total.svg?style=for-the-badge)](https://github.com/yourusername/yourrepository/releases)
+[![GitHub downloads](https://img.shields.io/github/adedoyin-emmanuel/uploadfly-client/total.svg?style=for-the-badge)](https://github.com/adedoyin-emmanuel/uploadfly-client)
 
 UploadflyClient is a JavaScript/TypeScript SDK that provides an easy way to interact with the Uploadfly cloud service. With this SDK, you can upload and delete files from your Uploadfly storage without directly making API requests. It simplifies file management within your applications.
 

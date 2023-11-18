@@ -1,52 +1,70 @@
-# UploadflyClient 🚀
+The JavaScript provides a convenient interface for interacting with the Uploadfly API to upload and delete files.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-
-[![GitHub stars](https://img.shields.io/github/stars/adedoyin-emmanuel/uploadfly-client.svg?style=for-the-badge)](https://github.com/adedoyin-emmanuel/uploadfly-client/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/adedoyin-emmanuel/uploadfly-client.svg?style=for-the-badge)](https://github.com/adedoyin-emmanuel/uploadfly-client/network)
-[![GitHub downloads](https://img.shields.io/github/downloads/adedoyin-emmanuel/uploadfly-client/total.svg?style=for-the-badge)](https://github.com/adedoyin-emmanuel/uploadfly-client/releases)
-
-UploadflyClient is a JavaScript/TypeScript SDK that provides an easy way to interact with the Uploadfly cloud service. With this SDK, you can upload and delete files from your Uploadfly storage without directly making API requests. It simplifies file management within your applications.
-
-## Installation
-
-You can install the `UploadflyClient` SDK via npm:
+### Installation
 
 ```bash
-npm install @uploadfly/uploadflyclient
-
+npm install @uploadfly/js
 ```
 
-```js
-import UploadflyClient from "@uploadfly/uploadflyclient";
+## Class: `CreateUploadflyClient`
 
-const client = new UploadflyClient("your_api_key_here");
-```
+### Constructor
 
-## Uploading Files
+#### `new CreateUploadflyClient(apiKey: string)`
 
-To upload files from your frontend application, here's an example:
+- Creates a new instance of the `CreateUploadflyClient` class.
+- **Parameters:**
+  - `apiKey` (string): The API key required for authentication with the UploadFly service.
+- **Throws:**
+  - `Error`: If the `apiKey` parameter is not provided.
 
-```js
+### Methods
+
+#### `upload(file: File, config?: { filename?: string }): Promise<any>`
+
+- Uploads a file to the Uploadfly cloud.
+- **Parameters:**
+  - `file` (File): The file to be uploaded.
+  - `config` (optional): Additional configuration options.
+    - `filename` (string): The desired filename for the uploaded file. If not provided, the original filename will be used.
+  - **Returns:**
+    - A Promise that resolves with the response from the Uploadfly API.
+  - **Throws:**
+    - `Error`: If the `file` parameter is not provided or if the file upload fails.
+    - `Error`: If an error occurs during the file upload process.
+
+#### `delete(fileUrl: string): Promise<any>`
+
+- Deletes a file from the Uploadfly cloud.
+- **Parameters:**
+  - `fileUrl` (string): The URL of the file to be deleted.
+  - **Returns:**
+    - A Promise that resolves with the response from the Uploadfly API.
+  - **Throws:**
+    - `Error`: If the `fileUrl` parameter is not provided or if the file deletion fails.
+    - `Error`: If an error occurs during the file deletion process.
+
+### Example Usage
+
+```javascript
+// Instantiate the UploadFly client with your API key
+const uploadfly = new CreateUploadflyClient("your-api-key");
+
+// Example: Upload a file
+const file = /* File object */;
 try {
-  const response = await client.uploadFile(file);
-  console.log("File uploaded successfully:", response);
+  const uploadResponse = await uploadfly.upload(file, { filename: "custom-filename" });
+  console.log("File uploaded successfully:", uploadResponse);
 } catch (error) {
-  console.error("File upload failed:", error.message);
+  console.error("Error uploading file:", error.message);
 }
-```
 
-## Deleting Files
-
-You can also delete files from Uploadfly using the SDK:
-
-```js
-const fileUrl = "https://cdn.uploadfly.cloud/your_file_url_here";
-
+// Example: Delete a file
+const fileUrl = /*File URL */;
 try {
-  const response = await client.deleteFile(fileUrl);
-  console.log("File deletion successful:", response.data.message);
+  const deleteResponse = await uploadfly.delete(fileUrl);
+  console.log("File deleted successfully:", deleteResponse);
 } catch (error) {
-  console.error("File deletion failed:", error.message);
+  console.error("Error deleting file:", error.message);
 }
 ```

@@ -6,11 +6,11 @@
     "esModuleInterop": true,
 
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./",
 
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true
   },
-  "exclude": ["tests"]
+  "include": ["src"]
 }

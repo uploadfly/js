@@ -10,6 +10,10 @@ describe("React SDK", () => {
   const uploadfly = new CreateUploadflyClient(apiKey);
   let uploadedFileUrl: string;
 
+  it("should create an instance of the SDK", () => {
+    expect(uploadfly).toBeInstanceOf(CreateUploadflyClient);
+  });
+
   it("should upload a PNG file and return valid response", async () => {
     // Create a PNG blob
     const base64Content =

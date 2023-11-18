@@ -1,4 +1,4 @@
-class UploadflyClient {
+export class CreateUploadflyClient {
   private apiKey: string;
   private uploadflyUploadEndpoint: string = `https://api.uploadfly.cloud/upload`;
   private uploadflyDeleteEndpoint: string = `https://api.uploadfly.cloud/delete`;
@@ -8,7 +8,7 @@ class UploadflyClient {
     this.apiKey = apiKey;
   }
 
-  public async uploadFile(
+  public async upload(
     file: File,
     config?: {
       filename?: string;
@@ -34,7 +34,7 @@ class UploadflyClient {
     }
   }
 
-  public async deleteFile(fileUrl: string): Promise<any> {
+  public async delete(fileUrl: string): Promise<any> {
     if (!fileUrl) throw new Error("A file url must be provided.");
     try {
       const response = await fetch(this.uploadflyDeleteEndpoint, {
@@ -54,5 +54,3 @@ class UploadflyClient {
     }
   }
 }
-
-export default UploadflyClient;

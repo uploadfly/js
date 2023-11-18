@@ -5,7 +5,7 @@ dotenv.config();
 
 describe("React SDK", () => {
   const apiKey = process.env.REACT_APP_UPLOADFLY_API_KEY;
-  const client = new UploadflyClient(apiKey!);
+  const client = new UploadflyClient(apiKey);
   let uploadedFileUrl: string;
 
   it("should upload a PNG file and return valid response", async () => {

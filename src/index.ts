@@ -1,1 +1,1 @@
-export { createClient } from "./uploadfly";
+export { CreateUploadflyClient } from "./uploadfly";

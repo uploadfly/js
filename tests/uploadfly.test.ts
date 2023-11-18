@@ -1,6 +1,6 @@
 import UploadflyClient from "../src/index";
 
-describe("UploadflyClient", () => {
+describe("React SDK", () => {
   const client = new UploadflyClient("uf_99d846ef15c041a8bf6dd1bd4200cc8b");
 
   it("should upload a file and return valid response", async () => {

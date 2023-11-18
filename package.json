@@ -1,7 +1,7 @@
 {
-  "name": "@uploadfly/react",
-  "version": "1.0.8",
-  "description": "UploadFly React SDK.",
+  "name": "@uploadfly/js",
+  "version": "1.0.0",
+  "description": "UploadFly JavaScript SDK.",
   "main": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
   "scripts": {

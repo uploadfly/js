@@ -13,7 +13,7 @@ export class CreateUploadflyClient {
     config?: {
       filename?: string;
     }
-  ): Promise<any> {
+  ) {
     if (!file) throw new Error("A file is required.");
     try {
       const formData = new FormData();
@@ -34,7 +34,7 @@ export class CreateUploadflyClient {
     }
   }
 
-  public async delete(fileUrl: string): Promise<any> {
+  public async delete(fileUrl: string) {
     if (!fileUrl) throw new Error("A file url must be provided.");
     try {
       const response = await fetch(this.uploadflyDeleteEndpoint, {

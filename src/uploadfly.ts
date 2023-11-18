@@ -8,11 +8,17 @@ class UploadflyClient {
     this.apiKey = apiKey;
   }
 
-  public async uploadFile(file: File): Promise<any> {
+  public async uploadFile(
+    file: File,
+    config?: {
+      filename?: string;
+    }
+  ): Promise<any> {
     if (!file) throw new Error("A file is required.");
     try {
       const formData = new FormData();
       formData.append("file", file);
+      formData.append("filename", config?.filename || file.name);
 
       const response = await fetch(this.uploadflyUploadEndpoint, {
         method: "POST",

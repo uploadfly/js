@@ -1,12 +1,12 @@
-The JavaScript provides a convenient interface for interacting with the Uploadfly API to upload and delete files.
+The JavaScript SDK provides a convenient interface for interacting with the UploadFly API to upload and delete files.
 
-### Installation
+## Installation
 
 ```bash
 npm install @uploadfly/js
 ```
 
-## Class: `CreateUploadflyClient`
+### Class: `CreateUploadflyClient`
 
 ### Constructor
 
@@ -44,7 +44,7 @@ npm install @uploadfly/js
     - `Error`: If the `fileUrl` parameter is not provided or if the file deletion fails.
     - `Error`: If an error occurs during the file deletion process.
 
-### Example Usage
+## Example Usage
 
 ```javascript
 // Instantiate the UploadFly client with your API key

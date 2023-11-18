@@ -20,7 +20,7 @@ npm install @uploadfly/js
 
 ### Methods
 
-#### `upload(file: File, config?: { filename?: string }): Promise<any>`
+#### `upload(file: File, config?: { filename?: string })`
 
 - Uploads a file to the Uploadfly cloud.
 - **Parameters:**
@@ -33,7 +33,7 @@ npm install @uploadfly/js
     - `Error`: If the `file` parameter is not provided or if the file upload fails.
     - `Error`: If an error occurs during the file upload process.
 
-#### `delete(fileUrl: string): Promise<any>`
+#### `delete(fileUrl: string)`
 
 - Deletes a file from the Uploadfly cloud.
 - **Parameters:**

@@ -1,9 +1,11 @@
 import UploadflyClient from "../src/index";
 
+//@ts-ignore
 import dotenv from "dotenv";
 dotenv.config();
 
 describe("React SDK", () => {
+  //@ts-ignore
   const apiKey = process.env.REACT_APP_UPLOADFLY_API_KEY!;
   const client = new UploadflyClient(apiKey);
   let uploadedFileUrl: string;

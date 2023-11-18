@@ -1,4 +1,4 @@
-import UploadflyClient from "../src/index";
+import { CreateUploadflyClient } from "../src/index";
 
 //@ts-ignore
 import dotenv from "dotenv";
@@ -7,7 +7,7 @@ dotenv.config();
 describe("React SDK", () => {
   //@ts-ignore
   const apiKey = process.env.REACT_APP_UPLOADFLY_API_KEY!;
-  const client = new UploadflyClient(apiKey);
+  const uploadfly = new CreateUploadflyClient(apiKey);
   let uploadedFileUrl: string;
 
   it("should upload a PNG file and return valid response", async () => {
@@ -23,7 +23,7 @@ describe("React SDK", () => {
       lastModified: Date.now(),
     });
 
-    const response = await client.uploadFile(file);
+    const response = await uploadfly.upload(file);
 
     expect(response.success).toBe(true);
     expect(response.status).toBe(201);
@@ -34,7 +34,7 @@ describe("React SDK", () => {
 
   it("should delete the uploaded file and return valid response", async () => {
     // Use the captured URL of the uploaded file
-    const response = await client.deleteFile(uploadedFileUrl);
+    const response = await uploadfly.delete(uploadedFileUrl);
 
     expect(response.success).toBe(true);
     expect(response.status).toBe(200);

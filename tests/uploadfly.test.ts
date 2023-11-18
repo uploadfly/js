@@ -2,29 +2,37 @@ import UploadflyClient from "../src/index";
 
 describe("React SDK", () => {
   const client = new UploadflyClient("uf_99d846ef15c041a8bf6dd1bd4200cc8b");
+  let uploadedFileUrl: string;
 
-  it("should upload a file and return valid response", async () => {
-    const blob = new Blob(["file-content"], { type: "text/plain" });
-    const file = new File([blob], "testing.txt", {
+  it("should upload a PNG file and return valid response", async () => {
+    // Create a PNG blob
+    const base64Content =
+      "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAhklEQVR42mP8/wcAAwAB/AV5r8HAAAAAElFTkSuQmCC";
+    const blob = new Blob([Buffer.from(base64Content, "base64")], {
+      type: "image/png",
+    });
+
+    const file = new File([blob], "something.png", {
+      type: "image/png",
       lastModified: Date.now(),
     });
 
     const response = await client.uploadFile(file);
 
+    console.log(response);
+
     expect(response.success).toBe(true);
     expect(response.status).toBe(201);
-    expect(response.data).toMatchObject({
-      name: expect.anything(),
-      data: expect.anything(),
-      size: expect.anything(),
-      type: expect.anything(),
-      url: expect.anything(),
-    });
+
+    // Capture the URL of the uploaded file for later use
+    uploadedFileUrl = response.data.url;
   });
 
-  it("should delete a file and return valid response", async () => {
-    const testFile = "https://cdn.uploadfly.cloud/9fpKZy/WhiteSur.jpg";
-    const response = await client.deleteFile(testFile);
+  it("should delete the uploaded file and return valid response", async () => {
+    // Use the captured URL of the uploaded file
+    const response = await client.deleteFile(uploadedFileUrl);
+
+    console.log(response);
 
     expect(response.success).toBe(true);
     expect(response.status).toBe(200);

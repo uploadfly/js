@@ -1,3 +1,1 @@
-import UploadflyClient from "./uploadfly";
-
-export default UploadflyClient;
+export { createClient } from "./uploadfly";

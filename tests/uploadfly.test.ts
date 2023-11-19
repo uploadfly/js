@@ -4,7 +4,7 @@ import { CreateUploadflyClient } from "../src/index";
 import dotenv from "dotenv";
 dotenv.config();
 
-describe("React SDK", () => {
+describe("JavaScript SDK", () => {
   //@ts-ignore
   const apiKey = process.env.REACT_APP_UPLOADFLY_API_KEY!;
   const uploadfly = new CreateUploadflyClient(apiKey);

@@ -1,6 +1,6 @@
 {
   "name": "@uploadfly/js",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "UploadFly JavaScript SDK.",
   "main": "./dist/src/uploadfly.js",
   "types": "./dist/src/uploadfly.d.ts",

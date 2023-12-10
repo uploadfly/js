@@ -1,4 +1,4 @@
-import { CreateUploadflyClient } from "../src/index";
+import { CreateUploadflyClient } from "../src/uploadfly";
 
 //@ts-ignore
 import dotenv from "dotenv";

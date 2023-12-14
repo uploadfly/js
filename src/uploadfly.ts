@@ -70,7 +70,7 @@ export class CreateUploadflyClient {
         formData.append("filename", config?.filename || file.name);
         formData.append("maxFileSize", config?.maxFileSize || "");
         formData.append("width", config?.width?.toString() || "");
-        formData.append("height", config?.height?.toString() || "");
+        height && formData.append("height", config?.height?.toString() || "");
 
         const response = await fetch(`${this.uploadflyEndpoint}/image/upload`, {
           method: "POST",

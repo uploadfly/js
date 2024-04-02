@@ -28,7 +28,6 @@ describe('JavaScript SDK', () => {
 		})
 
 		const response = await uploadfly.upload(file)
-		const arr = await uploadfly.image.upload(file)
 		expect(response.success).toBe(true)
 		expect(response.status).toBe(201)
 
@@ -36,12 +35,12 @@ describe('JavaScript SDK', () => {
 		uploadedFileUrl = response?.data?.url as string
 	})
 
-	// it("should delete the uploaded file and return valid response", async () => {
-	//   // Use the captured URL of the uploaded file
-	//   const response = await uploadfly.delete(uploadedFileUrl);
+	it('should delete the uploaded file and return valid response', async () => {
+		// Use the captured URL of the uploaded file
+		const response = await uploadfly.delete(uploadedFileUrl)
 
-	//   expect(response.success).toBe(true);
-	//   expect(response.status).toBe(200);
-	//   expect(response.data.message).toContain("deleted successfully");
-	// });
+		expect(response.success).toBe(true)
+		expect(response.status).toBe(200)
+		expect(response.data.message).toContain('deleted successfully')
+	})
 })

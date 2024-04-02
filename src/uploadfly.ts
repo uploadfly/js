@@ -1,3 +1,5 @@
+import { ApiResponse, ImageUploadResponse, UploadResponse } from "./types";
+
 export class CreateUploadflyClient {
   private apiKey: string;
   private uploadflyEndpoint: string = `https://api.uploadfly.cloud`;
@@ -12,7 +14,7 @@ export class CreateUploadflyClient {
     config?: {
       filename?: string;
     }
-  ) {
+  ) : ReturnType<() => Promise<ApiResponse<UploadResponse>>> {
     if (!file) throw new Error("A file is required.");
     try {
       const formData = new FormData();
@@ -62,7 +64,7 @@ export class CreateUploadflyClient {
         width?: number;
         height?: number;
       }
-    ) => {
+    ) : ReturnType<() => Promise<ApiResponse<ImageUploadResponse>>> => {
       if (!file) throw new Error("A file is required.");
       try {
         const formData = new FormData();

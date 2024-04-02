@@ -15,3 +15,8 @@ export interface ImageUploadResponse {
 }
 
 export type UploadResponse = Omit<ImageUploadResponse, 'blurhash'>
+
+// Extends native fetch response time to include typings from the UF-API under _data.
+export interface TypedResponse<T> extends Response {
+	_data?: T
+}
